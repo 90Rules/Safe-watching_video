@@ -1,0 +1,25 @@
+[AdBlockPlus 2.0]
+!
+! Version: 2023 
+! Title: Safer watching youtube and xxx
+!
+! Version: 2024
+! Expires: 365 days 
+!
+|HTTP://*$script
+!
+!
+! Youtube
+youtube.com##+js(set-constant, ytInitialPlayerResponse.adPlacements, undefined) 
+youtube.com##+js(set-constant, playerResponse.adPlacements, undefined) 
+youtube.com##+js(json-prune, [].playerResponse.adPlacements [].playerResponse.playerAds playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds) 
+youtube.com##div[class*="promoted-sparkles"]
+!
+!
+!
+! Limit script execution on adult websites
+|HTTPS://*script,domain=eporner.com|pornhub.com|xhamster.com
+@@eporner.com$script,domain=eporner.com
+@@phncdn.com$script,domain=pornhub.com
+@@xhcdn.com$script,domain=xhamster.com
+@@cdn13.com$script,domain=xhamster.com
