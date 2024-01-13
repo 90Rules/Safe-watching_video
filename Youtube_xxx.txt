@@ -12,6 +12,21 @@ youtube.com##+js(set-constant, ytInitialPlayerResponse.adPlacements, undefined)
 youtube.com##+js(set-constant, playerResponse.adPlacements, undefined) 
 youtube.com##+js(json-prune, [].playerResponse.adPlacements [].playerResponse.playerAds playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds) 
 youtube.com##div[class*="promoted-sparkles"]
+
+youtube.com#%#//scriptlet('set-constant', 'google_ad_status', '1')
+youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adPlacements', 'undefined')
+youtube.com#%#//scriptlet('trusted-replace-xhr-response', '/\"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/', '', '/^(?!.*(\/\/tv\.youtube\.com)).*(playlist\?list=|player\?key=|watch\?v=)/')
+youtube.com#%#//scriptlet('trusted-replace-fetch-response', '/"adPlacements.*?([A-Z]"\}|"\}{2})\}\]\,/', '', 'player?key=')
+youtube.com#%#//scriptlet('ubo-set-constant.js', 'ytInitialPlayerResponse.adPlacements', 'undefined')
+youtube.com#%#//scriptlet('ubo-set-constant.js', 'playerResponse.adPlacements', 'undefined')
+youtube.com#%#//scriptlet('ubo-json-prune.js', '[].playerResponse.adPlacements [].playerResponse.playerAds playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds')
+youtube.com##.ytd-watch-flexy.style-scope > #player-container > #ytd-player > #container > .html5-video-player > .ytp-suggested-action > button.ytp-button.ytp-suggested-action-badge
+
+||youtube.com/ptracking?
+||youtube.com/api/stats/qoe?
+||youtube.com/api/stats/atr?
+/log_event?,domain=youtube.com
+||google.com/log?$redirect=nooptext,domain=youtube.com
 !
 !
 !
