@@ -6,8 +6,6 @@
 ! Version: 2024
 ! Expires: 365 days 
 !
-|HTTP://*$script
-!
 !
 ! Youtube
 youtube.com##+js(set-constant, ytInitialPlayerResponse.adPlacements, undefined) 
